@@ -64,6 +64,7 @@ def bowling():
      gaming()
 
 def gaming():
+    global comp_choice, runs_1, wickets_1, balls_1
     comp_opt = comp_option
 
     root = Tk()
@@ -95,47 +96,42 @@ def gaming():
 
     score = Label(frame,text='Scoreboard',fg='#800000',bg='white',font=('Calibri',17,'bold'))
     score.place(x=90,y=5)
-    user_choice = {run1,run2,run3,run4,run5,run6}
+
     runs_1 = 0
     wickets_1 = 0
     balls_1 = 0
 
-    while wickets_1 != 2 and balls_1 != 12:
-        if user_choice == comp_choice:
-            wickets_1 += 1
+    if balls_1 == 6:
+        print("End of Over 1")
 
-        else:
-            if user_opt == "batting" or comp_opt == "bowling":
-                Bat_first = "You"
-                Ball_first = "Computer"
-                print(user_choice)
-                runs_1 += user_choice
+    elif balls_1 == 12:
+        print("End of Over 2")
 
-            elif user_opt == "bowling" or comp_opt == "batting":
-                Bat_first = "Computer"
-                Ball_first = "You"
-                print(user_choice)
-                runs_1+user_choice
-
-            print("\nScore =",runs_1,"/",wickets_1)
-            balls_1 += 1
-
-        if balls_1 == 6:
-            print("End of Over 1")
-
-        elif balls_1 == 12:
-            print("End of Over 2")
-
-        print("Balls remaining: ",12 - balls_1)
+    print("Balls remaining: ",12 - balls_1)
 
     print("\nFinal Score:")
     print("Runs =",runs_1)
     print("wickets =",wickets_1)
 
 
+
 def onerun():
-    global user_choice
+    global user_choice, wickets_1, runs_1
     user_choice = 1
+    if user_choice == comp_choice:
+        wickets_1 += 1
+
+    elif user_opt == "batting" or comp_opt == "bowling":
+        Bat_first = "You"
+        Ball_first = "Computer"
+        runs_1 += user_choice
+        print(runs_1)
+
+    elif user_opt == "bowling" or comp_opt == "batting":
+        Bat_first = "Computer"
+        Ball_first = "You"
+        print(user_choice)
+        runs_1+user_choice
    
 def tworun():
     global user_choice
