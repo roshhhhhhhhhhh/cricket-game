@@ -64,7 +64,7 @@ def bowling():
      gaming()
 
 def gaming():
-    global comp_choice, runs_1, wickets_1, balls_1
+    global comp_choice, runs_1, wickets_1, balls_1,comp_opt
     comp_opt = comp_option
 
     root = Tk()
@@ -88,7 +88,7 @@ def gaming():
     run6=Button(frame,width=20,text='6',border=0,bg='white',fg='#800000',cursor='hand2',command = sixrun)
     run6.place(x=80,y=300)
 
-    comp_choice=random.randint(1,6)
+    comp_choice = random.randint(1,6)
 
 
     frame = Frame(root,width=300,height=300)
@@ -109,33 +109,33 @@ def gaming():
 
     print("Balls remaining: ",12 - balls_1)
 
-    print("\nFinal Score:")
-    print("Runs =",runs_1)
-    print("wickets =",wickets_1)
+   
 
-
-
-def onerun():
-    global user_choice, wickets_1, runs_1
-    user_choice = 1
+def check(user_choice):
+    global wickets_1, runs_1
     if user_choice == comp_choice:
         wickets_1 += 1
 
     elif user_opt == "batting" or comp_opt == "bowling":
-        Bat_first = "You"
-        Ball_first = "Computer"
+       
         runs_1 += user_choice
         print(runs_1)
 
     elif user_opt == "bowling" or comp_opt == "batting":
-        Bat_first = "Computer"
-        Ball_first = "You"
-        print(user_choice)
-        runs_1+user_choice
+       
+        runs_1+=user_choice
+
+    print("\nFinal Score:")
+    print("Runs =",runs_1)
+    print("wickets =",wickets_1)
+
+def onerun():
+    
+    check(1)
+    
    
 def tworun():
-    global user_choice
-    user_choice = 2
+    check(2)
  
 def threerun():
     global user_choice
