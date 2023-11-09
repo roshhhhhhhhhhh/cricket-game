@@ -1,3 +1,5 @@
+1st Innings Score,2nd Innings Score,Match result
+30,26,"('computer won the match by', 4, 'runs')"
 
 1st Innings Score,2nd Innings Score,Match result
-39,43,computer won the match
+10,12,"('Player won the match by', 2, 'wickets')"
